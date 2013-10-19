@@ -9,6 +9,7 @@ import com.cube3rd.prototypes.anima.base.World;
 import com.cube3rd.prototypes.anima.components.DimensionComp;
 import com.cube3rd.prototypes.anima.components.SpriteComp;
 
+/* System regulates and organizes the rendering of all sprites in specific order. */
 public class RenderSys extends EcSystem {
 	private PriorityQueue<SpriteComp> order;
 	public RenderSys(World w) {
@@ -39,7 +40,7 @@ public class RenderSys extends EcSystem {
 	
 	
 	@Override
-	public boolean isRelevant(Entity e) {
+	protected boolean isRelevant(Entity e) {
 		return world.sprites.hasComponent(e) &&
 				world.positions.hasComponent(e) &&
 				world.dimensions.hasComponent(e);

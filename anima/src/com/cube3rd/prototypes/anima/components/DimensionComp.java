@@ -8,4 +8,8 @@ public class DimensionComp extends Component {
 		width = w;
 		height = h;
 	}
+	
+	public double shorter() {
+		return (width < height) ? width : height;
+	}
 }

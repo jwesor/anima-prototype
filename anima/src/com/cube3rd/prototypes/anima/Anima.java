@@ -10,12 +10,13 @@ import com.badlogic.gdx.math.Vector2;
 import com.cube3rd.prototypes.anima.base.World;
 import com.cube3rd.prototypes.anima.render.Renderer;
 
+/* An experiment with entity-component system and circles.
+ * */
 public class Anima extends Game {
 	private OrthographicCamera camera;
     private Rectangle viewport;
 	private SpriteBatch batch;
 	
-	private AnimaScreen screen;
 	private Renderer render;
 	private World world;
 
@@ -25,8 +26,6 @@ public class Anima extends Game {
     
 	@Override
 	public void create() {		
-		float w = Gdx.graphics.getWidth();
-		float h = Gdx.graphics.getHeight();
 
 		camera = new OrthographicCamera();
 		camera.setToOrtho(true, VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
@@ -35,7 +34,7 @@ public class Anima extends Game {
 		render = new Renderer(batch);
 		Renderer.setRenderer(render);
 
-		world = new World();	
+		world = new World(camera);	
 	}
 
 	@Override

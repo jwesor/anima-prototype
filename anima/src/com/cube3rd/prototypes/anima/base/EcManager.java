@@ -23,12 +23,12 @@ public class EcManager<T extends Component> {
 	
 	public void removeComponentFromEntity(Entity t) {
 		map.remove(t);
-		t.removeComponent(mask);
+		t.removeComponent(mask, this);
 	}
 	
 	public void addComponentToEntity(Entity t, T comp) {
 		map.put(t, comp);
-		t.addComponent(mask);
+		t.addComponent(mask, this);
 	}
 	
 	public void disableEntityComponent(Entity t) {

@@ -6,5 +6,5 @@ public abstract class EcSystem {
 		world = w;
 	}
 	public abstract void update(double delta);
-	public abstract boolean isRelevant(Entity e);
+	protected abstract boolean isRelevant(Entity e);
 }

@@ -8,6 +8,7 @@ import com.cube3rd.prototypes.anima.base.Component;
 import com.cube3rd.prototypes.anima.math2d.Vector2d;
 import com.cube3rd.prototypes.anima.render.Renderer;
 
+/* Contains necessary data for rendering with libgdx. */
 public class SpriteComp extends Component {
 	private Sprite sprite;
 	private boolean additiveBlending;

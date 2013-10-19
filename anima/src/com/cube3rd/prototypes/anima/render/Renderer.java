@@ -3,6 +3,7 @@ package com.cube3rd.prototypes.anima.render;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.Texture.TextureWrap;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -32,7 +33,6 @@ public class Renderer {
 			textures.put(Id.ids[i], atlas.findRegion(Id.resources[i]));
 			textures.get(Id.ids[i]).getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 		}
-		
 		additiveBlending = false;
 		batch.setBlendFunction(GL10.GL_SRC_ALPHA, GL10.GL_ONE);
 	}
@@ -45,11 +45,11 @@ public class Renderer {
 	public static void render(Sprite sprite, boolean blend) {
 		if (r == null)
 			return;
-		if (blend && !r.additiveBlending) {
+		if (!blend && r.additiveBlending) {
 			r.additiveBlending = blend;
 			r.batch.setBlendFunction(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
 		}
-		else if (!blend && r.additiveBlending) {
+		else if (blend && !r.additiveBlending) {
 			r.additiveBlending = blend;
 			r.batch.setBlendFunction(GL10.GL_SRC_ALPHA, GL10.GL_ONE);
 		}

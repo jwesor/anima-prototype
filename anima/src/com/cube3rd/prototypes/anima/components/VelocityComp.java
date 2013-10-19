@@ -10,4 +10,8 @@ public class VelocityComp extends Component {
 	public VelocityComp() {
 		vel = Vector2d.create();
 	}
+
+	public VelocityComp(Vector2d tmp) {
+		vel = tmp.copy();
+	}
 }
